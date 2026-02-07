@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tensorflow-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tensorflow-api
+  template:
+    metadata:
+      labels:
+        app: tensorflow-api
+    spec:
+      containers:
+      - name: tensorflow-api
+        image: nutanmeena/tensorflow-api:latest
+        ports:
+        - containerPort: 8000
